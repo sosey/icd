@@ -23,7 +23,7 @@ object AlarmModelParser {
       probableCause = config.as[Option[String]]("probableCause").getOrElse(""),
       operatorResponse = config.as[Option[String]]("operatorResponse").getOrElse(""),
       acknowledge = config.as[Option[Boolean]]("acknowledge").getOrElse(true),
-      latched = config.as[Option[Boolean]]("latched").getOrElse(true)
+      latched = config.as[Option[Boolean]]("latched").getOrElse(false)
     )
 }
 
