@@ -17,7 +17,13 @@ object AlarmModelParser {
       description = HtmlMarkup.gfmToHtml(config.as[String]("description")),
       requirements = config.as[Option[List[String]]]("requirements").getOrElse(Nil),
       severityLevels = config.as[Option[List[String]]]("severityLevels").getOrElse(List("Warning", "Major", "Critical")),
-      archive = config.as[Option[Boolean]]("archive").getOrElse(true)
+      archive = config.as[Option[Boolean]]("archive").getOrElse(true),
+      location = config.as[Option[String]]("location").getOrElse(""),
+      alarmType = config.as[Option[String]]("alarmType").getOrElse(""),
+      probableCause = config.as[Option[String]]("probableCause").getOrElse(""),
+      operatorResponse = config.as[Option[String]]("operatorResponse").getOrElse(""),
+      acknowledge = config.as[Option[Boolean]]("acknowledge").getOrElse(true),
+      latched = config.as[Option[Boolean]]("latched").getOrElse(true)
     )
 }
 

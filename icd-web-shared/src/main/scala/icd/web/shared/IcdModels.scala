@@ -58,14 +58,25 @@ object IcdModels {
    * @param requirements list of requirements that flow to this alarm
    * @param severityLevels severity levels the alarm can have
    * @param archive      true if publisher recommends archiving this alarm
+   * @param location     A text description of where the alarming condition is located
+   * @param alarmType    The general category for the alarm: [Absolute, BitPattern, Calculated, Deviation, Discrepancy, Instrument, RateChange, RecipeDriven, Safety, Statistical, System]
+   * @param probableCause  The probable cause for each level or for all levels
+   * @param operatorResponse  Instructions or information to help the operator respond to the alarm
+   * @param acknowledge  Does this alarm require an acknowledge by the operator?
+   * @param latched  Should this alarm be latched?
    */
   case class AlarmModel(
     name:         String,
     description:  String,
     requirements: List[String],
     severityLevels: List[String],
-    archive:      Boolean
-  ) extends ArchivedNameDesc
+    archive:      Boolean,
+    location:     String,
+    alarmType:    String,
+    probableCause: String,
+    operatorResponse: String,
+    acknowledge:   Boolean,
+    latched: Boolean) extends ArchivedNameDesc
 
   /**
    * Defines the properties of an attribute
