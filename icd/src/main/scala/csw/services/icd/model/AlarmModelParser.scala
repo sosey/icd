@@ -16,7 +16,7 @@ object AlarmModelParser {
       name = config.as[String]("name"),
       description = HtmlMarkup.gfmToHtml(config.as[String]("description")),
       requirements = config.as[Option[List[String]]]("requirements").getOrElse(Nil),
-      severity = config.as[Option[String]]("severity").getOrElse("none"),
+      severityLevels = config.as[Option[List[String]]]("severityLevels").getOrElse(Nil),
       archive = config.as[Option[Boolean]]("archive").getOrElse(true)
     )
 }

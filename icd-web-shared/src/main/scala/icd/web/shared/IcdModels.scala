@@ -56,14 +56,14 @@ object IcdModels {
    * @param name         alarm name
    * @param description  alarm descrption
    * @param requirements list of requirements that flow to this alarm
-   * @param severity     severity of the alarm
+   * @param severityLevels severity levels the alarm can have
    * @param archive      true if publisher recommends archiving this alarm
    */
   case class AlarmModel(
     name:         String,
     description:  String,
     requirements: List[String],
-    severity:     String,
+    severityLevels: List[String],
     archive:      Boolean
   ) extends ArchivedNameDesc
 
