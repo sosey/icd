@@ -560,9 +560,13 @@ object IcdGitManager {
         feedback(s"Checking out ${sv.subsystem}-${e.version} (commit: ${e.commit})")
         git.checkout().setName(e.commit).call
         feedback(s"Ingesting ${sv.subsystem}-${e.version}")
-        db.ingest(gitWorkDir)
-        val date = DateTime.parse(e.date)
-        db.versionManager.publishApi(sv.subsystem, Some(e.version), majorVersion = false, e.comment, e.user, date)
+        val problems = db.ingest(gitWorkDir)
+        if (problems.nonEmpty) {
+          problems.foreach(p => feedback(p.errorMessage()))
+        } else {
+          val date = DateTime.parse(e.date)
+          db.versionManager.publishApi(sv.subsystem, Some(e.version), majorVersion = false, e.comment, e.user, date)
+        }
       }
       git.close()
     } finally {
