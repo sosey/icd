@@ -56,7 +56,7 @@ object IcdModels {
    * @param name         alarm name
    * @param description  alarm descrption
    * @param requirements list of requirements that flow to this alarm
-   * @param severityLevels severity levels the alarm can have
+   * @param severity     severity of the alarm
    * @param archive      true if publisher recommends archiving this alarm
    * @param location     A text description of where the alarming condition is located
    * @param alarmType    The general category for the alarm: [Absolute, BitPattern, Calculated, Deviation, Discrepancy, Instrument, RateChange, RecipeDriven, Safety, Statistical, System]
@@ -69,7 +69,7 @@ object IcdModels {
     name:         String,
     description:  String,
     requirements: List[String],
-    severityLevels: List[String],
+    severity:     String,
     archive:      Boolean,
     location:     String,
     alarmType:    String,
