@@ -4,7 +4,6 @@ import icd.web.shared.IcdModels.TelemetryModel
 
 import collection.immutable.Set
 import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
 import scala.util.Try
 
 object ComponentDataReporter {
@@ -95,7 +94,7 @@ object ComponentDataReporter {
     }
 
     private def printEventSummary(items: mutable.MutableList[EventInfo]): Unit = {
-      val eventMap = new mutable.HashMap[Double, List[EventInfo]]() {override def default(key: Double) = List[EventInfo]()}
+      val eventMap = new mutable.HashMap[Double, List[EventInfo]]() {override def default(key: Double): List[EventInfo] = List[EventInfo]()}
       items.foreach {item =>
         val newList = eventMap(item.rate) :+ item
         eventMap += ((item.rate, newList))
