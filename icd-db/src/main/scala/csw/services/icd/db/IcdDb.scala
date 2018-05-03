@@ -48,6 +48,10 @@ object IcdDb extends App {
       c.copy(listData = Some(x))
     } text "Prints a list of total data rates for components of specified subsystem."
 
+    opt[String]("listEvents") valueName "<subsystem>" action { (x, c) =>
+      c.copy(listEvents = Some(x))
+    } text "Prints a list of events for components of specified subsystem."
+
     opt[Unit]('u', "allUnits")  action { (x, c) =>
       c.copy(allUnits = Some(Unit))
     } text "Prints the set of unique units used in all received commands and published events/telemetry for all components in DB."
@@ -132,6 +136,7 @@ object IcdDb extends App {
     options.missing.foreach(missingItemsReport)
     options.archived.foreach(archivedItemsReport)
     options.listData.foreach(s => listData(db, s))
+    options.listEvents.foreach(s => listEvents(db, s))
     options.allUnits.foreach(Unit => printAllUsedUnits(db))
 
     // --list option
