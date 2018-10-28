@@ -73,23 +73,14 @@ lazy val icdWebClient = (project in file("icd-web-client"))
   scalaJSUseMainModuleInitializer := false,
   unmanagedSourceDirectories in Compile := Seq((scalaSource in Compile).value),
   skip in packageJSDependencies := false,
-  jsDependencies ++=
-    Seq(
-      "org.webjars" % "jquery" % "2.2.1" / "jquery.js" minified "jquery.min.js",
-      "org.webjars" % "jquery-ui" % "1.12.1" / "jquery-ui.min.js" dependsOn "jquery.js",
-      "org.webjars" % "bootstrap" % "3.3.7-1" / "bootstrap.min.js" dependsOn "jquery.js",
-      "org.webjars.bower" % "bootstrap-table" % "1.11.1" / "bootstrap-table.min.js",
-      ProvidedJS / "resize.js" dependsOn "jquery-ui.min.js"
-    ),
-  libraryDependencies ++=
-    Seq(
-      "org.scala-js" %%% "scalajs-dom" % "0.9.3",
-      "com.lihaoyi" %%% "scalatags" % ScalaTagsVersion,
-      "com.typesafe.play" %%% "play-json" % PlayJsonVersion,
-      "org.querki" %%% "jquery-facade" % "1.2",
-      "com.github.japgolly.scalacss" %%% "core" % "0.5.5",
-      "com.github.japgolly.scalacss" %%% "ext-scalatags" % "0.5.5"
-    )
+  jsDependencies ++= Seq(
+    "org.webjars" % "jquery" % "2.2.1" / "jquery.js" minified "jquery.min.js",
+    "org.webjars" % "jquery-ui" % "1.12.1" / "jquery-ui.min.js" dependsOn "jquery.js",
+    "org.webjars" % "bootstrap" % "4.1.3" / "bootstrap.min.js" dependsOn "jquery.js",
+    "org.webjars.bower" % "bootstrap-table" % "1.11.1" / "bootstrap-table.min.js",
+    ProvidedJS / "resize.js" dependsOn "jquery-ui.min.js"
+  ),
+  libraryDependencies ++= clientDeps.value
 ).enablePlugins(ScalaJSPlugin, ScalaJSWeb)
   .dependsOn(icdWebSharedJs)
 

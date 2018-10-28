@@ -32,32 +32,31 @@ object Dependencies {
   val jgit = "org.eclipse.jgit" % "org.eclipse.jgit" % "4.8.0.201706111038-r"
 
   // web server dependencies
-  val scalajsScripts = "com.vmunier" %% "scalajs-scripts" % "1.1.1"
+  val scalajsScripts = "com.vmunier" %% "scalajs-scripts" % "1.1.2"
 
   val playJson = "com.typesafe.play" %% "play-json" % PlayJsonVersion
   val jqueryUi = "org.webjars" % "jquery-ui" % "1.12.1"
-  val webjarsPlay = "org.webjars" %% "webjars-play" % "2.6.2"
-  val bootstrap = "org.webjars" % "bootstrap" % "3.3.7-1"
+  val webjarsPlay = "org.webjars" %% "webjars-play" % "2.6.3"
+  val bootstrap = "org.webjars" % "bootstrap" % "4.1.3"
   val bootstrapTable = "org.webjars.bower" % "bootstrap-table" % "1.11.1"
 
-//  // ScalaJS web client scala dependencies
-//  val clientDeps =
-//    Seq(
-//      dep("org.scala-js" %%% "scalajs-dom" % "0.9.3"),
-//      dep("com.lihaoyi" %%% "scalatags" % ScalaTagsVersion),
-//      dep("com.typesafe.play" %%% "play-json" % PlayJsonVersion),
-//      dep("org.querki" %%% "jquery-facade" % "1.2"),
-//      dep("com.github.japgolly.scalacss" %%% "core" % "0.5.3"),
-//      dep("com.github.japgolly.scalacss" %%% "ext-scalatags" % "0.5.3")
-//    )
-//
-////  // ScalaJS client JavaScript dependencies
-//  val clientJsDeps =
-//    Seq(
-//      "org.webjars" % "jquery" % "2.2.1" / "jquery.js" minified "jquery.min.js",
-//      "org.webjars" % "jquery-ui" % "1.12.1" / "jquery-ui.min.js" dependsOn "jquery.js",
-//      "org.webjars" % "bootstrap" % "3.3.7-1" / "bootstrap.min.js" dependsOn "jquery.js",
-//      "org.webjars.bower" % "bootstrap-table" % "1.11.1" / "bootstrap-table.min.js",
-//      ProvidedJS / "resize.js" dependsOn "jquery-ui.min.js"
-//    )
+  // ScalaJS web client scala dependencies
+  val clientDeps = Def.setting(Seq(
+    "org.scala-js" %%% "scalajs-dom" % "0.9.6",
+    "com.lihaoyi" %%% "scalatags" % ScalaTagsVersion,
+
+    "com.typesafe.play" %%% "play-json" % PlayJsonVersion,
+    "org.querki" %%% "jquery-facade" % "1.2",
+    "com.github.japgolly.scalacss" %%% "core" % "0.5.5",
+    "com.github.japgolly.scalacss" %%% "ext-scalatags" % "0.5.5"
+  ))
+
+//  // ScalaJS client JavaScript dependencies
+//  val clientJsDeps = Def.setting(Seq(
+//    "org.webjars" % "jquery" % "2.2.1" / "jquery.js" minified "jquery.min.js",
+//    "org.webjars" % "jquery-ui" % "1.12.1" / "jquery-ui.min.js" dependsOn "jquery.js",
+//    "org.webjars" % "bootstrap" % "3.3.7-1" / "bootstrap.min.js" dependsOn "jquery.js",
+//    "org.webjars.bower" % "bootstrap-table" % "1.11.1" / "bootstrap-table.min.js",
+//    ProvidedJS / "resize.js" dependsOn "jquery-ui.min.js"
+//  ))
 }
